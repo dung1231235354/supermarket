@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Add Transaction</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;700&family=Fraunces:wght@700;900&display=swap" rel="stylesheet">
+<style>
+    body { margin: 0; font-family: 'DM Sans', sans-serif; background-color: #fdf8e7; color: #1a1a1a; }
+    .header { display: flex; justify-content: space-between; padding: 20px 40px; text-transform: uppercase; font-size: 13px; font-weight: 700; border-bottom: 2px solid #000; }
+    .main-content { max-width: 600px; margin: 40px auto; background-color: #fff; padding: 40px; border: 2px solid #000; box-shadow: 8px 8px 0px #000; }
+    h1 { font-family: 'Fraunces', serif; font-size: 36px; margin: 0 0 10px 0; }
+    .form-group { margin-bottom: 15px; }
+    .form-row-double { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+    label { display: block; font-weight: 700; text-transform: uppercase; font-size: 12px; margin-bottom: 8px; }
+    input, select { width: 100%; padding: 12px; font-size: 14px; border: 2px solid #000; box-sizing: border-box; font-family: 'DM Sans', sans-serif; }
+    .cta-btn { background-color: #f4c242; color: #000; border: 2px solid #000; padding: 15px; font-weight: 700; text-transform: uppercase; cursor: pointer; width: 100%; }
+    .item-row { display: flex; gap: 10px; margin-bottom: 10px; align-items: center; }
+</style>
+</head>
+<body>
+    <div class="header"><div>SUPERMARKET</div><div>INVENTORY SYSTEM</div></div>
+    <div style="padding: 0 40px; margin-top: 20px;"><a href="indexx.php"><button class="cta-btn" style="width: auto;">← GO BACK</button></a></div>
+    
+    <div class="main-content">
+        <h1>Log Transaction</h1>
+        <form action="add_transaction.php" method="POST">
+            <div class="form-row-double">
+                <div class="form-group"><label>Customer ID:</label><input type="number" name="customer_id" placeholder="Blank = Guest"></div>
+                <div class="form-group">
+                    <label>Payment Method:</label>
+                    <select name="payment_method">
+                        <option value="cash">Cash</option><option value="card">Card</option><option value="transfer">Bank Transfer</option><option value="e-wallet">E-Wallet</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-row-double">
+                <div class="form-group"><label>Tax Amount ($):</label><input type="number" name="tax" step="0.01" value="0.00"></div>
+                <div class="form-group"><label>Discount Amount ($):</label><input type="number" name="discount" step="0.01" value="0.00"></div>
+            </div>
+            <div class="form-group"><label>Purchase Note (Summary):</label><input type="text" name="item_purchased" placeholder="e.g. Weekly Groceries"></div>
+
+            <h3 style="border-bottom: 2px solid #000; padding-bottom: 5px;">Items (Auto-Calculates Total)</h3>
+            
+            <div class="item-row">
+                <div style="flex: 2;"><label>Product ID 1:</label><input type="number" name="product_id_1" min="1"></div>
+                <div style="flex: 1;"><label>Qty:</label><input type="number" name="quantity_1" min="1"></div>
+            </div>
+            <div class="item-row">
+                <div style="flex: 2;"><label>Product ID 2:</label><input type="number" name="product_id_2" min="1"></div>
+                <div style="flex: 1;"><label>Qty:</label><input type="number" name="quantity_2" min="1"></div>
+            </div>
+            <div class="item-row">
+                <div style="flex: 2;"><label>Product ID 3:</label><input type="number" name="product_id_3" min="1"></div>
+                <div style="flex: 1;"><label>Qty:</label><input type="number" name="quantity_3" min="1"></div>
+            </div>
+            <div class="item-row">
+                <div style="flex: 2;"><label>Product ID 4:</label><input type="number" name="product_id_4" min="1"></div>
+                <div style="flex: 1;"><label>Qty:</label><input type="number" name="quantity_4" min="1"></div>
+            </div>
+
+            <button type="submit" class="cta-btn">Log Complete Transaction</button>
+        </form>
+    </div>
+</body>
+</html>

@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Database Search</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Fraunces:wght@700;900&display=swap" rel="stylesheet">
+
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        font-family: 'DM Sans', sans-serif;
+        background-color: #fdf8e7;
+        color: #1a1a1a;
+    }
+
+    
+    .header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px 40px;
+        text-transform: uppercase;
+        font-size: 13px;
+        letter-spacing: 1.5px;
+        font-weight: 700;
+        border-bottom: 2px solid #fdf8e7; 
+    }
+
+    .logo-text {
+        font-family: 'Fraunces', serif;
+        font-size: 24px;
+        font-weight: 900;
+        text-transform: none;
+        letter-spacing: -0.5px;
+    }
+
+    .system-text {
+        font-size: 11px;
+        letter-spacing: 2px;
+    }
+
+    
+    .cta-btn {
+        background-color: #f4c242;
+        color: #000;
+        border: 2px solid #000;
+        padding: 10px 20px;
+        font-size: 12px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        cursor: pointer;
+        transition: all 0.2s ease;
+    }
+
+    .cta-btn:hover {
+        background-color: #000;
+        color: #f4c242;
+    }
+
+    a {
+        text-decoration: none;
+    }
+
+    
+    .main-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 40px;
+        padding: 0 20px;
+    }
+
+    h1 {
+        font-family: 'Fraunces', serif;
+        font-size: 48px;
+        margin-bottom: 10px;
+        letter-spacing: -1px;
+        text-align: center;
+    }
+
+    .subtitle {
+        font-size: 16px;
+        margin-bottom: 40px;
+        text-align: center;
+    }
+
+    .search-box {
+        background-color: #fff;
+        border: 4px solid #000;
+        box-shadow: 10px 10px 0px #000;
+        padding: 40px;
+        width: 100%;
+        max-width: 500px;
+        display: flex;
+        flex-direction: column;
+        gap: 25px;
+    }
+
+    .form-group {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    label {
+        font-size: 11px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+    }
+
+    select, input[type="text"] {
+        padding: 15px;
+        font-family: 'DM Sans', sans-serif;
+        font-size: 14px;
+        border: 2px solid #000;
+        background-color: #fdf8e7;
+        outline: none;
+    }
+
+    select:focus, input[type="text"]:focus {
+        border-color: #f4c242;
+    }
+
+    .submit-btn {
+        width: 100%;
+        padding: 18px;
+        font-size: 14px;
+        margin-top: 10px;
+    }
+</style>
+</head>
+<body>
+
+    <div class="header">
+        <div class="logo-text">SUPERMARKET</div>
+        <div class="system-text">INVENTORY SYSTEM</div>
+    </div>
+
+    <div style="padding: 0 40px;">
+        <a href="indexx.php">
+            <button class="cta-btn">← GO BACK</button>
+        </a>
+    </div>
+
+    <div class="main-content">
+        <h1>Database Search</h1>
+        <p class="subtitle">Quickly locate products, customers, suppliers, and transactions.</p>
+
+        <form action="result.php" method="POST" class="search-box">
+            
+            <div class="form-group">
+                <label>Search In:</label>
+                <select name="type">
+                    <option value="product">Products</option>
+                    <option value="customer">Customers</option>
+                    <option value="supplier">Suppliers</option>
+                    <option value="transaction">Transactions</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label>Keywords / Notes / Name:</label>
+                <input type="text" name="search_term" placeholder="e.g. Omo, Smith, grocery..." required>
+            </div>
+
+            <button type="submit" class="cta-btn submit-btn">SEARCH NOW</button>
+        </form>
+    </div>
+
+</body>
+</html>
+
+
