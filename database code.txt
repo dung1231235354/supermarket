@@ -2,7 +2,7 @@ DROP DATABASE IF EXISTS inventory_db;
 CREATE DATABASE inventory_db;
 USE inventory_db;
 
--- 1. Bảng Supplier
+
 CREATE TABLE supplier (
     supplier_id INT AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(255) NOT NULL,
@@ -16,7 +16,7 @@ CREATE TABLE supplier (
     description TEXT
 );
 
--- 2. Bảng Product
+
 CREATE TABLE product (
     product_id INT AUTO_INCREMENT PRIMARY KEY,
     category VARCHAR(100),
@@ -31,7 +31,7 @@ CREATE TABLE product (
     FOREIGN KEY (supplier_id) REFERENCES supplier(supplier_id) ON DELETE SET NULL ON UPDATE CASCADE
 );
 
--- 3. Bảng Customer
+
 CREATE TABLE customer (
     customer_id INT AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(255) NOT NULL,
@@ -45,7 +45,7 @@ CREATE TABLE customer (
     status ENUM('active', 'inactive') DEFAULT 'active'
 );
 
--- 4. Bảng Transaction (Đã sử dụng item_purchased thay vì note)
+
 CREATE TABLE transaction (
     transaction_id INT AUTO_INCREMENT PRIMARY KEY,
     customer_id INT,
@@ -60,7 +60,7 @@ CREATE TABLE transaction (
     FOREIGN KEY (customer_id) REFERENCES customer(customer_id) ON DELETE SET NULL ON UPDATE CASCADE
 );
 
--- 5. Bảng Involve (Chi tiết giao dịch)
+
 CREATE TABLE involve (
     product_id INT,
     transaction_id INT,
@@ -71,7 +71,7 @@ CREATE TABLE involve (
     FOREIGN KEY (transaction_id) REFERENCES transaction(transaction_id) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
--- INSERT Dữ liệu Supplier
+
 INSERT INTO supplier (name, address, contact, email, type, country, website, status, description) VALUES
 ('Alpha Distributors', '12 Alpha St, NY', '+12025550101', 'contact@alpha.com', 'Distributor', 'USA', 'alpha.com', 'active', 'General distributor'),
 ('Beta Foods', '34 Beta Blvd, LDN', '+442071234567', 'sales@betafoods.co.uk', 'Manufacturer', 'UK', 'betafoods.co.uk', 'active', 'Canned goods'),
@@ -124,7 +124,7 @@ INSERT INTO supplier (name, address, contact, email, type, country, website, sta
 ('Eco Farms 5', '404 Eco Rd, OR', '+15035550005', 'hello@ecofarms5.com', 'Local Farm', 'USA', 'ecofarms5.com', 'inactive', 'Organic produce'),
 ('Eco Farms 6', '405 Eco Rd, OR', '+15035550006', 'hello@ecofarms6.com', 'Local Farm', 'USA', 'ecofarms6.com', 'active', 'Organic produce');
 
--- INSERT Dữ liệu Product
+
 INSERT INTO product (category, price, stock, supplier_id, manufacture_date, expiry_date, name, status, description) VALUES
 ('Beverages', 2.50, 120, 7, '2025-01-15', '2026-01-15', 'EtaCola', 'available', 'Carbonated soft drink'),
 ('Beverages', 3.00, 85, 7, '2025-02-10', '2025-08-10', 'EtaJuice', 'available', '100% Orange Juice'),
@@ -177,7 +177,7 @@ INSERT INTO product (category, price, stock, supplier_id, manufacture_date, expi
 ('Food & Grocery', 5.50, 85, 35, '2025-10-20', '2028-10-20', 'MegaRice', 'available', 'Basmati Rice 2kg'),
 ('Food & Grocery', 3.20, 120, 35, '2025-11-05', '2027-11-05', 'MegaPasta', 'available', 'Penne Pasta 1kg');
 
--- INSERT Dữ liệu Customer
+
 INSERT INTO customer (name, phone, address, email, date_of_birth, gender, registration_date, points, status) VALUES
 ('Alice Adams', '555-0101', '101 Apple St', 'alice@gmail.com', '1990-01-15', 'Female', '2025-01-10', 150, 'active'),
 ('Bob Barker', '555-0102', '102 Birch Rd', 'bob@gmail.com', '1985-05-22', 'Male', '2025-02-14', 50, 'active'),
@@ -230,7 +230,7 @@ INSERT INTO customer (name, phone, address, email, date_of_birth, gender, regist
 ('Wade Wilson', '555-0149', '149 Weapon X Dr', 'wade@gmail.com', '1987-11-22', 'Male', '2026-03-14', 150, 'active'),
 ('Xena Warrior', '555-0150', '150 Amphipolis Sq', 'xena@gmail.com', '1985-09-04', 'Female', '2026-04-22', 260, 'active');
 
--- INSERT Dữ liệu Transaction
+
 INSERT INTO transaction (customer_id, date, total_amount, payment_method, item_purchased, tax, discount) VALUES
 (1, '2026-05-01 10:15:00', 12.50, 'cash', 'Morning grocery run', 1.14, 0.00),
 (2, '2026-05-01 11:30:00', 45.00, 'card', 'Monthly supplies', 4.09, 5.00),
@@ -283,7 +283,7 @@ INSERT INTO transaction (customer_id, date, total_amount, payment_method, item_p
 (49, '2026-05-25 16:15:00', 33.80, 'card', 'Snacks and fruit', 3.07, 0.00),
 (50, '2026-05-25 19:45:00', 125.00, 'e-wallet', 'Big party prep', 11.36, 20.00);
 
--- INSERT Dữ liệu Involve
+
 INSERT INTO involve (product_id, transaction_id, quantity, unit_price) VALUES
 (1, 1, 5, 2.50),
 (3, 2, 10, 1.80), (4, 2, 5, 2.20), (7, 2, 2, 4.50),
