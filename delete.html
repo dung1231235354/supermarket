@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Delete Database Record</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;700&family=Fraunces:wght@700;900&display=swap" rel="stylesheet">
+<style>
+    body { margin: 0; font-family: 'DM Sans', sans-serif; background-color: #fdf8e7; color: #1a1a1a; }
+    .header { display: flex; justify-content: space-between; padding: 20px 40px; text-transform: uppercase; font-size: 13px; font-weight: 700; border-bottom: 2px solid #000; }
+    .main-content { max-width: 600px; margin: 40px auto; background-color: #fff; padding: 40px; border: 2px solid #000; box-shadow: 8px 8px 0px #000; }
+    h1 { font-family: 'Fraunces', serif; font-size: 36px; margin: 0 0 10px 0; color: #d32f2f; }
+    .warning-box { background-color: #ffebee; border: 2px dashed #d32f2f; padding: 15px; font-size: 13px; margin-bottom: 25px; font-weight: 500; color: #b71c1c; }
+    .form-group { margin-bottom: 20px; }
+    label { display: block; font-weight: 700; text-transform: uppercase; font-size: 12px; margin-bottom: 8px; }
+    input, select { width: 100%; padding: 14px; font-size: 14px; border: 2px solid #000; box-sizing: border-box; font-family: 'DM Sans', sans-serif; }
+    .cta-btn { background-color: #fff; color: #000; border: 2px solid #000; padding: 10px 20px; font-weight: 700; text-transform: uppercase; cursor: pointer; display: inline-block; text-decoration: none;}
+    .submit-btn { width: 100%; padding: 18px; margin-top: 10px; background-color: #d32f2f; color: #fff; font-weight: 700; letter-spacing: 2px; border: 2px solid #000; }
+    .submit-btn:hover { background-color: #000; color: #d32f2f; }
+</style>
+</head>
+<body>
+    <div class="header"><div>SUPERMARKET</div><div>INVENTORY SYSTEM</div></div>
+    <div style="padding: 0 40px; margin-top: 20px;"><a href="indexx.php"><button type="button" class="cta-btn">← GO BACK</button></a></div>
+    
+    <div class="main-content">
+        <h1>Delete Record</h1>
+        
+
+        <form action="delete.php" method="POST">
+            <div class="form-group" style="background-color: #f4c242; padding: 15px; border: 2px solid #000;">
+                <label>Chọn bảng chứa dữ liệu cần xóa:</label>
+                <select name="table_name" required>
+                    <option value="product">Product (Sản phẩm)</option>
+                    <option value="customer">Customer (Khách hàng)</option>
+                    <option value="supplier">Supplier (Nhà cung cấp)</option>
+                    <option value="transaction">Transaction (Giao dịch)</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label>Nhập ID cần xóa (Bắt buộc):</label>
+                <input type="number" name="record_id" required min="1" placeholder="Ví dụ: 5">
+            </div>
+
+            <button type="submit" class="submit-btn" onclick="return confirm('Bạn có chắc chắn muốn XÓA VĨNH VIỄN dữ liệu này không?');">XÓA DỮ LIỆU</button>
+        </form>
+    </div>
+</body>
+</html>
