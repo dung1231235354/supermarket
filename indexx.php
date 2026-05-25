@@ -12,7 +12,7 @@
     body { margin: 0; font-family: 'DM Sans', sans-serif; background-color: #fdf8e7; color: #1a1a1a; overflow-x: hidden; }
     a { text-decoration: none; color: inherit; }
 
-  
+    /* --- NAVIGATION BAR --- */
     .navbar { display: flex; justify-content: space-between; align-items: center; padding: 20px 40px; text-transform: uppercase; font-size: 13px; font-weight: 700; border-bottom: 2px solid #000; background-color: #fff; }
     
     .nav-group { display: flex; flex-direction: column; gap: 5px; border-right: 2px dashed #e0e0e0; padding-right: 20px; margin-right: 20px; }
@@ -24,18 +24,18 @@
 
     .logo { font-family: 'Fraunces', serif; font-size: 26px; font-weight: 900; text-transform: none; letter-spacing: -1px; line-height: 0.9; text-align: right; }
 
-    
+    /* --- BUTTONS --- */
     .cta-btn { background-color: #fff; color: #000; border: 2px solid #000; padding: 8px 12px; font-size: 11px; font-family: 'DM Sans', sans-serif; font-weight: 700; text-transform: uppercase; cursor: pointer; transition: all 0.2s ease; box-shadow: 2px 2px 0px #000; }
     .cta-btn:hover { background-color: #000 !important; color: #f4c242 !important; box-shadow: 0px 0px 0px #000; transform: translate(2px, 2px); }
     .btn-yellow { background-color: #f4c242; }
     .btn-black { background-color: #000; color: #f4c242; }
 
-   
+    /* --- HERO --- */
     .hero { display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; height: 75vh; padding: 0 20px; }
     .hero h1 { font-family: 'Fraunces', serif; font-size: 64px; font-weight: 900; margin-bottom: 20px; line-height: 1.1; letter-spacing: -1px; }
     .hero p { font-size: 18px; max-width: 650px; margin: 0 auto 30px auto; line-height: 1.5; font-weight: 500; }
 
-   
+    /* --- MODALS --- */
     .modal-overlay { display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.7); backdrop-filter: blur(5px); align-items: center; justify-content: center; }
     .modal-overlay:target { display: flex; }
     .modal-bg-close { position: absolute; top: 0; left: 0; width: 100%; height: 100%; cursor: default; }
@@ -44,7 +44,7 @@
     .close-btn:hover { color: #d32f2f; }
     .modal-container h2 { font-family: 'Fraunces', serif; font-size: 36px; margin-top: 0; margin-bottom: 15px; }
 
-  
+    /* --- TABLES & FORMS --- */
     .table-section { margin-bottom: 50px; overflow-x: auto; }
     .table-section h3 { font-family: 'Fraunces', serif; font-size: 24px; border-bottom: 2px solid #000; padding-bottom: 10px; margin-bottom: 15px; text-transform: uppercase; letter-spacing: -0.5px; }
     
@@ -163,7 +163,16 @@
         <a href="#" class="modal-bg-close"></a>
         <div class="modal-container" style="max-width: 1300px;">
             <a href="#" class="close-btn">&times;</a>
-            <h2 style="text-align: center; margin-bottom: 40px; font-size: 42px;">Master Database Viewer</h2>
+            
+            <h2 style="text-align: center; margin-bottom: 10px; font-size: 42px;">Master Database Viewer</h2>
+            
+            <div style="text-align: center; margin-bottom: 40px;">
+                <a href="delete.html">
+                    <button class="cta-btn" style="color: #d32f2f; border-color: #d32f2f; padding: 12px 25px; font-size: 13px;">
+                        🗑️ Open Delete Control Panel
+                    </button>
+                </a>
+            </div>
 
             <?php
             $conn = new mysqli("localhost", "root", "", "inventory_db");
